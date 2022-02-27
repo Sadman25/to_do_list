@@ -35,6 +35,11 @@ export default function Todo() {
       localStorage.removeItem("localTasks");
   }
 
+  const handleEdit = ((task)=>{
+    let newTask = prompt("Please edit your task", `${task.title}`);
+    
+  })
+
   const totalTasks = !tasks.length
     ? " no tasks"
     : tasks.length === 1
@@ -75,7 +80,7 @@ export default function Todo() {
             <div className="col-2">
                 <button
                 className =" mt-3 btn btn-warning material-icons"
-                // onClick ={()=> handleEdit(task)}
+                onClick ={()=> handleEdit(task)}
                 >edit</button>
                 <button
                 className =" mt-3 btn btn-warning material-icons"
