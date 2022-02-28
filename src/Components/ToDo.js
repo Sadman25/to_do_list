@@ -35,18 +35,13 @@ export default function Todo() {
       localStorage.removeItem("localTasks");
   }
 
-  const handleEdit = ((task)=>{
+  const handleEdit = ((task) => {
     let newTask = prompt("Please edit your task", `${task.title}`);
-    //console.log(newTask);
-    tasks.map((item)=>{
-      if(item.id==task.id){
-        console.log('id Matched')
-        console.log(item)
-        
-      }
-    })
-    
-  })
+    const filteredTasks = tasks.filter((t) => t.id !== task.id);
+    const updatedTasks = [...filteredTasks, { id: task.id, title: newTask }];
+    setTasks(updatedTasks);
+    localStorage.setItem("localTasks", JSON.stringify(updatedTasks));
+  });
 
   const totalTasks = !tasks.length
     ? " no tasks"
