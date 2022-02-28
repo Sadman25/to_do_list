@@ -37,6 +37,14 @@ export default function Todo() {
 
   const handleEdit = ((task)=>{
     let newTask = prompt("Please edit your task", `${task.title}`);
+    //console.log(newTask);
+    tasks.map((item)=>{
+      if(item.id==task.id){
+        console.log('id Matched')
+        console.log(item)
+        
+      }
+    })
     
   })
 
